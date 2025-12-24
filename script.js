@@ -77,7 +77,7 @@ function loadRooferConfig() {
             const titleCompany = document.getElementById('titleCompanyName');
             if (titleCompany) {
                 titleCompany.innerText = displayName;
-                gsap.from(titleCompany, { opacity: 0, y: 20, duration: 1, delay: 0.5 });
+                gsap.from(titleCompany, { y: 20, duration: 1, delay: 0.5, ease: "power2.out" });
             }
 
             const googleMapsBtn = document.getElementById('googleMapsBtn');
@@ -155,7 +155,6 @@ function initThreeJS() {
 function initGSAP() {
     gsap.from(".hero-title .line", {
         y: 100,
-        opacity: 0,
         duration: 1,
         ease: "power4.out"
     });
