@@ -106,7 +106,7 @@ function initThreeJS() {
         color: 0xFACC15,
         wireframe: true,
         transparent: true,
-        opacity: 0.1
+        opacity: 0.05
     });
 
     const knot = new THREE.Mesh(geometry, material);

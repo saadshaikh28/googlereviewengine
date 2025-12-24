@@ -129,16 +129,15 @@ h3 {
     color: #FFFFFF;
     position: relative;
     display: inline-block;
-    padding: 0.2rem 1.2rem;
-    margin: 0 5px;
+    padding: 0.1rem 0.6rem;
     background: linear-gradient(to right, #FFD700 0%, #FFFFFF 50%, #FFD700 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 15px #FFD700) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
+    filter: drop-shadow(0 0 10px rgba(250, 204, 21, 0.6));
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
     z-index: 10;
     opacity: 1 !important;
     animation: gold-shine 3s linear infinite;
@@ -149,13 +148,13 @@ h3 {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 140%;
-    height: 160%;
-    background: radial-gradient(circle, rgba(250, 204, 21, 0.5) 0%, transparent 70%);
+    width: 110%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(250, 204, 21, 0.25) 0%, transparent 70%);
     transform: translate(-50%, -50%);
     z-index: -1;
-    filter: blur(30px);
-    animation: neon-pulse 3s ease-in-out infinite;
+    filter: blur(15px);
+    animation: neon-pulse 4s ease-in-out infinite;
 }
 
 @keyframes gold-shine {
