@@ -91,14 +91,16 @@ h3 {
 /* Hero Section */
 .hero {
     position: relative;
-    height: 85vh;
-    min-height: 600px;
+    height: 60vh;
+    /* Reduced height to focus on title */
+    min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text-light);
     overflow: hidden;
-    background: var(--gradient-hero);
+    background: transparent;
+    /* Show 3D background */
 }
 
 .hero-content {
@@ -124,15 +126,48 @@ h3 {
 
 .company-brand {
     font-weight: 900;
-    color: var(--accent-color);
-    background: linear-gradient(to right, #FDE68A, var(--accent-color), #fff, var(--accent-color));
-    background-size: 200% auto;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+    padding: 0.2rem 1rem;
+    background: linear-gradient(135deg, #FFD700 0%, #FACC15 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shine-flow 3s linear infinite;
-    filter: drop-shadow(0 0 12px rgba(250, 204, 21, 0.4));
-    margin-left: 10px;
+    filter: drop-shadow(0 0 15px rgba(250, 204, 21, 0.8));
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    z-index: 1;
+}
+
+.company-brand::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 140%;
+    background: radial-gradient(circle, rgba(250, 204, 21, 0.4) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    filter: blur(20px);
+    animation: neon-pulse 3s ease-in-out infinite;
+}
+
+@keyframes neon-pulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1);
+        filter: blur(20px) hue-rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+        filter: blur(30px) hue-rotate(20deg);
+    }
 }
 
 @keyframes shine-flow {
@@ -1016,14 +1051,27 @@ input[type="range"]::-webkit-slider-thumb:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+.btn-green {
+    background: #10b981;
+    color: white;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+.btn-green:hover {
+    background: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+}
+
 .btn-primary.full-width {
     font-size: 1.2rem;
     padding: 1.25rem;
+    background: var(--accent-color);
+    color: #000;
 }
 
-.btn-outline.full-width {
-    font-size: 1.2rem;
-    padding: 1.25rem;
+.btn-primary.full-width:hover {
+    background: var(--accent-hover);
 }
 
 @media (max-width: 600px) {

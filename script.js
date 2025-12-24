@@ -112,18 +112,40 @@ function initThreeJS() {
         color: 0xFACC15,
         wireframe: true,
         transparent: true,
-        opacity: 0.05
+        opacity: 0.1
     });
 
-    const sphere = new THREE.Mesh(geometry, material);
-    scene.add(sphere);
+    const knot = new THREE.Mesh(geometry, material);
+    scene.add(knot);
 
-    camera.position.z = 15;
+    // Particles
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesCount = 500;
+    const posArray = new Float32Array(particlesCount * 3);
+
+    for (let i = 0; i < particlesCount * 3; i++) {
+        posArray[i] = (Math.random() - 0.5) * 50;
+    }
+
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    const particlesMaterial = new THREE.PointsMaterial({
+        size: 0.05,
+        color: 0xFACC15,
+        transparent: true,
+        opacity: 0.5
+    });
+
+    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particlesMesh);
+
+    camera.position.z = 20;
 
     function animate() {
         requestAnimationFrame(animate);
-        sphere.rotation.x += 0.001;
-        sphere.rotation.y += 0.001;
+        knot.rotation.x += 0.002;
+        knot.rotation.y += 0.001;
+        particlesMesh.rotation.y -= 0.0003;
+        particlesMesh.rotation.x += 0.0001;
         renderer.render(scene, camera);
     }
     animate();
