@@ -172,24 +172,6 @@ function initEventListeners() {
         });
     });
 
-    // City input
-    document.getElementById('cityInput').addEventListener('input', (e) => {
-        state.city = e.target.value;
-        document.getElementById('cityBadge').classList.add('hidden');
-    });
-
-    // Confirm City
-    document.getElementById('confirmCityBtn').addEventListener('click', () => {
-        const badge = document.getElementById('cityBadge');
-        badge.innerHTML = "✅ Confirmed";
-        badge.style.background = "#10b981";
-        badge.style.color = "#fff";
-        setTimeout(() => {
-            badge.classList.add('hidden');
-            if (state.service) nextStep();
-        }, 800);
-    });
-
     // Sliders
     const sliders = ['professionalism', 'communication', 'time'];
     sliders.forEach(id => {
